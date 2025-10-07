@@ -5,13 +5,23 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon server.js"
+    "dev": "nodemon src/app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manishmagaju/trying.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manishmagaju/trying/issues"
+  },
+  "homepage": "https://github.com/manishmagaju/trying#readme",
   "description": "",
   "dependencies": {
-    "date-fns": "^4.1.0"
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
