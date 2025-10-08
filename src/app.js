@@ -2,6 +2,7 @@ import express from "express";
 import fs from "fs";
 import config from "./config/config.js"
 import productRoutes from "./routes/productRoutes.js"
+import userRoutes from "./routes/userRoutes.js"
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.get("/", (req, res) => {
 })
 
 app.use("/products",productRoutes)
+app.use("/user",userRoutes)
 
 
 
