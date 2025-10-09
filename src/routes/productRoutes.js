@@ -1,15 +1,9 @@
 import express from "express";
-import fs from "fs";
+import productController from "../controller/productController.js"
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
- const rawData = fs.readFileSync("./src/data/products.json","utf8");
- const product = JSON.parse(rawData);
- const filteredProducts = product.filter((product)=>product.price > 800);
- res.status(200).json(product);
- 
-});
+router.get("/",productController.getproduct);
 
 router.post("/", (req, res) => {
   res.send(" products posted sucessfully");
