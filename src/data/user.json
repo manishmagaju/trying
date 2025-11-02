@@ -1,0 +1,17 @@
+[
+    {
+        "user":"1",
+        "name":"manish",
+        "roll":"600"
+    },
+     {
+        "user":"2",
+        "name":"monika",
+        "roll":"601"
+    },
+     {
+        "user":"3",
+        "name":"raju",
+        "roll":"602"
+    }
+]

@@ -3,6 +3,7 @@ import fs from "fs";
 import config from "./config/config.js"
 import productRoutes from "./routes/productRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
+import todosRoutes from "./routes/todosRoutes.js";
 
 const app = express();
 
@@ -16,6 +17,10 @@ app.get("/", (req, res) => {
 
 app.use("/products",productRoutes)
 app.use("/user",userRoutes)
+app.use("/todos",todosRoutes)
+
+
+
 
 
 
