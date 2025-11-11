@@ -26,7 +26,7 @@ app.use("/todos",todosRoutes)
 
 app.listen(config.port, () => {
     console.log("port running at 5000........")
-})
+});
 
 
 

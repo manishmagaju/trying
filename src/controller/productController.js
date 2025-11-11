@@ -14,7 +14,10 @@ const putRequest = (req,res)=>{
 }
 
 const getProductById = (req,res)=>{
-    res.send("one product is sucessfully fetched")
+
+    const id = req.params.id;
+   
+    res.send(`product of id:${id}`)
 }
 
 const deleteProduct = (req,res)=>{
