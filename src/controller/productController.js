@@ -16,8 +16,9 @@ const putRequest = (req,res)=>{
 const getProductById = (req,res)=>{
 
     const id = req.params.id;
+    const individualData = productService.getProductsIndividually(id)
    
-    res.send(`product of id:${id}`)
+    res.json(individualData)
 }
 
 const deleteProduct = (req,res)=>{
