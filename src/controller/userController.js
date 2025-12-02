@@ -8,7 +8,8 @@ const productController = (req, res) => {
 
 const getUserById = (req,res)=> {
     const id = req.params.user
-    res.send(`the user name is:${id}`)
+    const individualData = userService.getUserIndividually(id)
+    res.json(individualData)
 }
 
 export default { productController, getUserById };

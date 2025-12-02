@@ -5,27 +5,25 @@ const getproduct = (req, res) => {
     res.status(200).json(products);                // ✅ return data, not function
 }
 
-const postRequest = (req,res)=>{
+const postRequest = (req, res) => {
     res.send("sucessfully product creates by post request")
 }
 
-const putRequest = (req,res)=>{
+const putRequest = (req, res) => {
     res.send("sucessfully updated by put request")
 }
 
-const getProductById = (req,res)=>{
-
+const getProductById = (req, res) => {
     const id = req.params.id;
     const individualData = productService.getProductsIndividually(id)
-   
     res.json(individualData)
 }
 
-const deleteProduct = (req,res)=>{
+const deleteProduct = (req, res) => {
     res.send("deleted  a product sucessfully")
 }
 
 
 
 
-export default { getproduct,postRequest,putRequest,getProductById,deleteProduct};
+export default { getproduct, postRequest, putRequest, getProductById, deleteProduct };

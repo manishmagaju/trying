@@ -8,7 +8,9 @@ const todosController = (req, res) => {
 
 const individualTodos = (req, res) => {
     const todo = req.params.todoss;
-    res.send(`hello this is  individual todos${todo}`)
+    const individualTodos = todosService.getTodosIndividually(todo)
+    res.json(individualTodos)
 }
+
 
 export default { todosController, individualTodos };

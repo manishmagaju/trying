@@ -1,10 +1,21 @@
 import fs from "fs";
 
-const userservice = ()=>{
+const rawData = fs.readFileSync("./src/data/user.json", "utf8");
+const parsedUser = JSON.parse(rawData)
 
-    const rawData = fs.readFileSync("./src/data/user.json","utf8");
-    const parsed = JSON.parse(rawData)
-    return parsed
+
+
+const userservice = () => {
+    const allUsers = parsedUser
+    return allUsers
 }
 
-export default {userservice};
+const getUserIndividually = (user) => {
+
+    const findedUsers = parsedUser.find((data) => data.name == user )
+    return findedUsers;
+
+
+}
+
+export default { userservice, getUserIndividually };
