@@ -1,11 +1,21 @@
 import express from "express";
-import fs from "fs";
+import bodyParser from "body-parser";
+import mongoose from "mongoose";
+
+
 import config from "./config/config.js"
 import productRoutes from "./routes/productRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 import todosRoutes from "./routes/todosRoutes.js";
 
 const app = express();
+mongoose.connect("mongodb://localhost:27017/mern20250622").then(() => {
+    console.log("sucesfully connected mongodb")
+}).catch((error)=> {
+    console.log(error);
+})
+
+app.use(bodyParser.json())
 
 app.get("/", (req, res) => {
     res.json({
@@ -15,9 +25,9 @@ app.get("/", (req, res) => {
     })
 })
 
-app.use("/products",productRoutes)
-app.use("/user",userRoutes)
-app.use("/todos",todosRoutes)
+app.use("/products", productRoutes)
+app.use("/user", userRoutes)
+app.use("/todos", todosRoutes)
 
 
 

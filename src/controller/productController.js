@@ -1,12 +1,14 @@
 import productService from "../services/productService.js";
 
 const getproduct = (req, res) => {
-    const products = productService.getProducts(); // ✅ call function correctly
+    req.query
+    const products = productService.getProducts(req.query); // ✅ call function correctly
     res.status(200).json(products);                // ✅ return data, not function
 }
 
 const postRequest = (req, res) => {
-    res.send("sucessfully product creates by post request")
+    productService.createProduct(req.body)
+    res.status(201).send("created product sucessfully")
 }
 
 const putRequest = (req, res) => {
