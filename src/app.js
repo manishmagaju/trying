@@ -1,22 +1,23 @@
 import express from "express";
 import bodyParser from "body-parser";
-import mongoose from "mongoose";
 
-
+//imported links
 import config from "./config/config.js"
 import productRoutes from "./routes/productRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 import todosRoutes from "./routes/todosRoutes.js";
+import connectDB from "./config/database.js"
 
+//express initialization
 const app = express();
-mongoose.connect("mongodb://localhost:27017/mern20250622").then(() => {
-    console.log("sucesfully connected mongodb")
-}).catch((error)=> {
-    console.log(error);
-})
 
+//conecting database
+connectDB()
+
+//middleware
 app.use(bodyParser.json())
 
+//defaut text for homepage
 app.get("/", (req, res) => {
     res.json({
         name: config.name,
@@ -25,15 +26,13 @@ app.get("/", (req, res) => {
     })
 })
 
+
+//routes
 app.use("/products", productRoutes)
 app.use("/user", userRoutes)
 app.use("/todos", todosRoutes)
 
-
-
-
-
-
+//server start
 app.listen(config.port, () => {
     console.log("port running at 5000........")
 });
