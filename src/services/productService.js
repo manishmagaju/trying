@@ -1,26 +1,22 @@
 import fs from "fs";
 import product from "../models/Product.js"
 
-const rawData = fs.readFileSync("./src/data/products.json", "utf8");
-const products = JSON.parse(rawData);
 
-const getProducts = (query) => {
 
-    const filteredProducts = products.filter((product) => product.title == query.title)
-    return filteredProducts;
+const getProducts = async (query) => {
+    const mongodbProducts = await  product.find()
+    return mongodbProducts;
 }
 
-const getProductsIndividually = (id) => {
-
-    const findedProducts = products.find((products) =>  products.id == id )
+const getProductsIndividually = async (id) => {
+    const findedProducts = await product.findById(id)
     return findedProducts;
 }
 
-const createProduct =(data)=>{
-    product.create(data)
-  
-
+const createProduct = async (data) => {
+    const createdProduct = await product.create(data)
+    return createdProduct;
 }
 
 
-export default { getProducts,getProductsIndividually,createProduct}
+export default { getProducts, getProductsIndividually, createProduct }

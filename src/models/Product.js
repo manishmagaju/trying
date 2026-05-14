@@ -1,17 +1,19 @@
 import mongoose from "mongoose";
 
+//schema making for product
 const productSchema = new mongoose.Schema({
     name: String,
     brand: String,
     category: String,
     price: Number,
-    createdAt:{
-        type:Date,
-        default:Date.now
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 
 })
 
-const model =mongoose.model("product", productSchema)
+//applying model for  productSchema
+const model = mongoose.model("product", productSchema)
 
-export default model ;
+export default model;
